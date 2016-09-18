@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Remove User</title>
+    <link href="/stylesheets/dashboard/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script type='text/javascript' src="/javascripts/dashboard/jquery-1.11.1.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="/stylesheets/dashboard/style.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+    <!-- start menu -->
+    <link href="/stylesheets/dashboard/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="/stylesheets/dashboard/etalage.css">
+    <script type="text/javascript" src="/javascripts/dashboard/megamenu.js"></script>
+    <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+    <script src="/javascripts/dashboard/jquery.etalage.min.js"></script>
+    <script src="/javascripts/dashboard/menu_jquery.js"></script>
+    <script>
+        jQuery(document).ready(function($){
+
+            $('#etalage').etalage({
+                thumb_image_width: 300,
+                thumb_image_height: 400,
+                source_image_width: 900,
+                source_image_height: 1200,
+                show_hint: true,
+                click_callback: function(image_anchor, instance_id){
+                    alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+                }
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+<!-- header -->
+<div class="header_bg">
+    <div class="container">
+        <div class="header">
+            <div class="head-t">
+                <div class="logo">
+                    <font size="2" ><a><u>Hello <%= user.FullName%></u> </a><br>
+                        <a >Admin's Name: <%= user.UserName%> </a></font>
+                </div>
+                <!-- start header_right -->
+
+                <div class="clearfix"> </div>
+            </div>
+            <!-- start header menu -->
+            <ul class="megamenu skyblue">
+                <li class="active grid"><a class="color1" href="../../adminDashboard">Home</a></li>
+                <li class="grid"><a class="color2" href="#">Users DB</a>
+                    <div class="megapanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <ul>
+                                        <li><a href="/AddUser"> Add user</a></li>
+                                        <li><a href="/RemoveUser">Remove user</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </li>
+                <li><a class="color4" href="#">Places DB</a>
+                    <div class="megapanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <ul>
+                                        <li><a href="/AddPlace">Add a hang-out place</a></li>
+                                        <li><a href="/RemovePlace">Remove a hang-out place</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- content -->
+<div class="container">
+    <div class="women_main">
+        <!-- start content -->
+        <div class="row single">
+            <div class="col-md-9 det">
+                <div class="login-agileits-top">
+                    <form action="/RemoveUser" method="post">
+                        <p>User Name: </p>
+                        <input type="text" name="userName" placeholder="" required=""/> <input type="submit" value="Remove User">
+                    </form>
+                    <br><br> <p><font size="8" color="blue"><u><%=userNotfoundMsg.msg%></u></font></p>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- end content -->
+    </div>
+</div>
+</body>
+</html>

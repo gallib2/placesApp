@@ -1,0 +1,145 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Filtered places</title>
+    <link href="../stylesheets/dashboard/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script type='text/javascript' src="../javascripts/dashboard/jquery-1.11.1.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="../stylesheets/dashboard/style.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+    <!-- start menu -->
+    <link href="../stylesheets/dashboard/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="../javascripts/dashboard/megamenu.js"></script>
+    <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+    <script src="../javascripts/dashboard/menu_jquery.js"></script>
+    <script src="../javascripts/dashboard/simpleCart.min.js"> </script>
+</head>
+<body>
+<!-- header_top -->
+
+<!-- header -->
+<div class="header_bg">
+    <div class="container">
+        <div class="header">
+            <div class="head-t">
+                <div class="logo">
+                    <font size="2" ><a><u>Hello <%= user.FullName%></u> </a><br>
+                        <a >User Name: <%= user.UserName%> </a></font>
+                </div>
+                <!-- start header_right -->
+
+                <div class="clearfix"> </div>
+            </div>
+            <!-- start header menu -->
+            <ul class="megamenu skyblue">
+                <li class="active grid"><a class="color1" href="/dashboard">Home</a></li>
+                <li class="grid"><a class="color2" href="#">My hang-out places</a>
+                    <div class="megapanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <ul>
+                                        <li><a href="/userPlaces"> Show my hang-out places</a></li>
+                                        <li><a href="/AddMyPlace">Add new hang-out place</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </li>
+                <li><a class="color4" href="#">My friends</a>
+                    <div class="megapanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <ul>
+                                        <li><a href="/userFriends">Show my friends list</a></li>
+                                        <li><a href="/AddMyFriend">Add a friend</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- content -->
+<div class="container">
+    <div class="women_main">
+        <!-- start sidebar -->
+
+    </div>
+    <!-- start content -->
+    <div class="col-md-9 w_content">
+
+        <!-- grids_of_4 -->
+
+        <div class="grids_of_4">
+            <p><font size="8" color="blue"><u><%=userNotfoundMsg.msg%></u></font></p>
+
+            <% places.forEach(function(place, index, arr){ %>
+
+            <div class="grid1_of_4">
+
+                <div class="content_box">
+                    <a><img src="/images/dashboard/<%=place.Img%>" class="img-responsive" alt=""/></a>
+                    <h4><a><%= place.BusinessName %></a></h4>
+                    <p><%= place.City %></p>
+                    <div class="grid_1 simpleCart_shelfItem">
+                        <div class="item_add"><span class="item_price">
+                               <form method="post" action="./Add">
+                                   <input type="hidden" name="placeId" value="<%=place.BusinessId%>" />
+                                    <input type="submit" value="Add" />
+                                </form>
+                                       <!-- <button><a name="businessId" class="btn-add" value="<%=place.BusinessId%>">Add</a></button> -->
+                                    </span>
+                        </div>
+                        <div class="item_add"><span class="item_price"><a href="/userPlaces/moreInfo/<%= place.BusinessId%>">get more info</a></span></div>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+        </div>
+        <!-- end grids_of_4 -->
+
+
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- end content -->
+</div>
+</div>
+<script>
+/*
+    $(".btn-add").click(function() {
+        var businessId = $(this).attr("value");
+        $.post( "./Add", {placeId: businessId} );
+                .done(function (data) {
+                    window.location.reload();
+                });
+    });
+*/
+
+</script>
+</body>
+</html>
+
